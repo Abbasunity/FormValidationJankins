@@ -1,0 +1,103 @@
+<div class="container">
+    <div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+         <div class="formvalid">
+            <form [formGroup]='RegisterForm' autocomplete="off" (ngSubmit)="registerSubmit()">
+                <!-- Username Field start -->
+        <div class="mb-3">
+         <h4>Form Validation</h4>
+            <label  class="form-label">Username</label>
+            <input type="text" class="form-control" formControlName='name' placeholder="Enter Username">
+            <div *ngIf="RegisterForm.controls['name'].invalid && (RegisterForm.controls['name'].dirty || RegisterForm.controls['name'].touched ||RegisterForm.controls['name'].hasError('pattern') )"
+            class="text-danger">
+        <div *ngIf="RegisterForm.controls['name'].errors.required">
+            name is required
+        </div>
+        <div *ngIf="RegisterForm.controls['name'].hasError('minlength')">
+            minimum 8 charator required
+        </div>   
+        <div *ngIf="RegisterForm.controls['name'].hasError('maxlength')">
+            maximum 20 charator required
+        </div>
+        <div *ngIf="RegisterForm.controls['name'].hasError('pattern') ">
+Valid name is required
+        </div> 
+        </div>
+        </div>
+                        <!-- Username Field End -->
+
+                <!-- First name Field start -->
+        <div class="mb-3">
+            <label> First Name</label>
+            <input type="text" class="form-control" formControlName='firstname' [(ngModel)]='firstname' placeholder="Enter First Name"/>
+
+            <div class="text-danger" *ngIf="RegisterForm.controls['firstname'].invalid &&(RegisterForm.controls['firstname'].dirty|| RegisterForm.controls['firstname'].touched || RegisterForm.controls['firstname'].hasError('pattern'))">
+                valid First name is required
+            
+            </div>
+            <div class="text-danger" *ngIf="RegisterForm.controls['firstname'].hasError('minlength')">
+                min 5 charator required
+            </div>
+
+            <div class="text-danger" *ngIf="RegisterForm.controls['firstname'].hasError('maxlength') ">
+                maximum 20 charactor required
+            </div>
+
+        </div>
+          <!-- First name Field End -->
+        <div class="md-3">
+            <label > Date of Birth</label>
+            <input type="date" class="form-control" formControlName='dob' value="1995-01-01" min="1995-01-01" max="2002-12-31" >
+        </div>
+
+          <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="number"  class="form-control" formControlName='age' placeholder="Enter your age">
+            <div class="text-danger" *ngIf="RegisterForm.controls['age'].invalid &&(RegisterForm.controls['age'].dirty || RegisterForm.controls['age'].touched || RegisterForm.controls['age'].hasError('pattern')) ">
+valid age is required
+<div class="text-danger" *ngIf="RegisterForm.controls['age'].hasError('pattern')">
+Enter age between 1 to 100
+</div>
+
+            </div>
+          </div>
+<div class="mb-3">
+    <label>Password</label>
+    <input type="password" formControlName='password' class="form-control"/>
+    <div class="text-danger" *ngIf="RegisterForm.controls['password'].invalid && (RegisterForm.controls['password'].dirty||RegisterForm.controls['password'].touched ||RegisterForm.controls['password'].hasError('pattern')) ">
+       
+        password must one Upercase, one Lower case,one special charactor and one number 
+<div *ngIf="RegisterForm.controls['password'].hasError('minlength') "> password minimum 8 charactor</div>
+<div *ngIf="RegisterForm.controls['password'].hasError('maxlength')">
+    Password maximum 16 charactor only
+</div>
+    </div>
+</div>
+<div class="mb-3">
+    <label>Confirm Password</label>
+    <input type="password" formControlName='confirmpassword' class="form-control"/>
+    <div  class="text-danger" *ngIf="RegisterForm.controls['confirmpassword'].invalid && (RegisterForm.controls['confirmpassword'].dirty || RegisterForm.controls['confirmpassword'].touched) ">
+Password and Confirm Password must matched
+    </div>
+</div>
+<div class="mb-3">
+    <label> Email</label>
+    <input type="email" formControlName='email' class="form-control"/>
+    <div class="text-danger" *ngIf="RegisterForm.controls['email'].invalid &&( RegisterForm.controls['email'].dirty || RegisterForm.controls['email'].touched ||RegisterForm.controls['email'].hasError('pattern'))">
+Valid Email required
+    </div>
+</div>
+          <button class="btn btn-primary" type="submit" [disabled]="RegisterForm.pristine || RegisterForm.invalid">Save</button>
+        </form> 
+        </div> 
+        </div> <div class="col-md-3">
+    </div>
+
+</div>
+</div>
+
+
+

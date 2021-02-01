@@ -1,0 +1,19 @@
+.formvalid{
+    background-color: white;
+    margin-top: 30px;
+    padding: 20px;
+    box-shadow: 0px 3px 6px 0px black;
+}
+
+/* number field arrow removed start */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* number field arrow removed End */
