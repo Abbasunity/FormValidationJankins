@@ -4,7 +4,7 @@ pipeline {
     stage('Stage') {
       steps {
         bat 'npm install'
-        bat 'npm ng build --prod'
+        bat 'npm run ng build'
       }
     }
 
